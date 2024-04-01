@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Routes, Route, useNavigate} from 'react-router-dom';
 import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
+import axios from 'axios';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/reset.css';
@@ -15,10 +16,11 @@ import Homepage from './pages/Homepage';
 import Page404 from './pages/Page404';
 import AuthorInfo from './pages/AuthorInfo';
 import WritersCall from './pages/WritersCall';
+
 function App() {
   //useNavigate() - 함수이므로 변수에 담아서 선언을 일반적으로 함
   let navigate = useNavigate();
-  let [pic] = useState(data)
+  let [pic, setPic] = useState(data)
   
   let [showButton, setShowButton] = useState(true)
   //sub/:id 경로가 클릭되면 첫번째 페이지를 보여주는 navigate 함수 선언
@@ -26,9 +28,25 @@ function App() {
     navigate(`/sub1/${id}`)
   }
 
+  // axios로 데이터 요청
+  const fetchData = () => {
+    axios.get("https://raw.githubusercontent.com/HwangJuneyeop/shop/main/data2.json")
+    .then ((result)=> {
+      let copy = [...pic, ...result.data]; //pic이 가지고 있는 data.js와 서버에서 받은 data2.json의 데이터를 각각 복사해서 copy라는 변수에 저장
+      setPic(copy)
+
+      if (result.data.length == 0) {
+        setShowButton(false);
+      }
+    })
+    .catch(()=> {
+      console.log("실패")
+    })
+  }
   //상품더보기 버튼을 클릭하면 실행되는 함수
   const btnDataClick = () => {
-
+    fetchData()
+    setShowButton(false) //버튼이 클릭이되면 비활성화
   }
   return (
     <div className="wrap">
@@ -67,7 +85,7 @@ function App() {
         <Route path="/" element={<Homepage pic={pic}/>}/>
         <Route path="/sub1/:id" element={<Sub1 pic={pic}/>}></Route>
 
-        <Route path="/sub2" element={<Sub2/>}>
+        <Route path="/sub2" element={<Sub2 pic={pic}/>}>
           <Route path="sub2-1" element={<AuthorInfo pic={pic}/>}></Route>
           <Route path="sub2-2" element={<WritersCall/>}></Route>
         </Route>

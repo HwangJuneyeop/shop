@@ -153,3 +153,33 @@ button {
   max-width: 100%;
 }
 .pic .pic-info * {margin-bottom: 10px;}
+
+
+/* 작가별 */
+.authorList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.authorList .author-area {
+  width: 48%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  margin-bottom: 26px;
+}
+.authorList .author-area:hover {
+  border-color: #22a351;
+}
+.author-pic {
+  height: 140px;
+  overflow: hidden;
+}
+.author-pic img {width: 100%; height: 100%;}
+.text-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.text-wrap .author {margin-bottom: 0;}
