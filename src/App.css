@@ -1,38 +1,155 @@
-.App {
-  text-align: center;
+/* 공통요소 */
+.wrap {
+  position: relative;
+  padding-bottom: 40px;
+  height: 100%;
+}
+.container {
+  position: relative;
+  max-width: 96%;
+  padding-bottom: 40px;
+}
+h2 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 40px;
+}
+h2 span {
+  display: block;
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(0,0,0,0.7)
+}
+/* pic-data */
+.title {margin-bottom: 15px;}
+.author {margin-bottom: 10px;}
+.content {margin-bottom: 15px;}
+.pric{margin-bottom: 30px;}
+button {
+  border: none;
+  border-radius: 3px;
+  padding: 4px 8px;
+  background: #121212;
+  color:#fff;
+}
+/* button 모음 */
+.btn-view {
+  background-color: rgba(0,0,0,0.5);
+  font-size: 15px;
+}
+.btn-data {
+  position: absolute;
+  bottom: 30px; left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 15px;
+}
+/* gnb-area */
+.nav-wrap {
+  padding: 0 2.5%;
+  background: #212529;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav-link {font-weight: 400;}
+.navbar-expand .navbar-nav .dropdown-menu {
+  left: 0;
+  min-width: 8rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.gnb-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.gnb-area .logo {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 30px;
+  width: 24vw;
+  color: #27c762;
+}
+
+.gnb-area .gnb {
+  width: 66vw;
+  display: flex;
+  justify-content: end;
+}
+
+.gnb-area .nav-link {
+  margin: 0 5px;
+}
+
+.gnb-area .nav-link:last-child {
+  margin-right: 0;
+}
+
+/* SUB01 -HOME */
+.main-bg {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 50vh;
+  background: linear-gradient(45deg, rgba(109, 47, 20, 0.3), rgba(215, 173, 96, 0.2)), url('./img1.jpg') no-repeat left center/cover;
 }
 
-.App-link {
-  color: #61dafb;
+.main-bg h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 60px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.main-bg p {
+  color: rgba(255, 255, 255, 0.8);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* card css */
+.pic-area {
+  margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
+.pic-area .pic-img {  
+  margin-bottom: 50px;
+  width: 50%;
+}
+.pic-area .pic-img .pic {
+  
+}
+.pic-area .pic-img figure {
+  overflow: hidden;
+  height: 200px;
+  margin-bottom: 25px;
+}
+.pic-img figure img {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 15px;
+}
+.content {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  letter-spacing: -1px;
+  word-break: keep-all;  
+}
+
+/* pic */
+.container.pic {
+  padding-top: 60px
+}
+
+.pic .img img {
+  max-width: 100%;
+}
+.pic .pic-info * {margin-bottom: 10px;}
